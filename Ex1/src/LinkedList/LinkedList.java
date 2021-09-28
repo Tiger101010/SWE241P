@@ -12,8 +12,6 @@ public class LinkedList {
         head = list.getHead();
     }
 
-    ;
-
     public LinkedNode getHead() {
         return head;
     }
@@ -39,7 +37,6 @@ public class LinkedList {
         }
         return null;
     }
-
 
     public static void main(String args[]) {
         LinkedList l = new LinkedList();
