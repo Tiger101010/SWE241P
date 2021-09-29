@@ -2,6 +2,7 @@ import LinkedList.LinkedList;
 import MySet.HashMapSet;
 import MySet.LinkedListSet;
 import MySet.Set;
+import MySet.TreeSet;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,8 +13,9 @@ import java.util.List;
 public class Main {
 
     public void run() throws IOException {
-        //Set testSet = new LinkedListSet();
-        Set testSet = new HashMapSet(8046);
+        // Set testSet = new LinkedListSet();
+        // Set testSet = new HashMapSet(8046);
+        Set testSet = new TreeSet();
         readFile("./data/pride-and-prejudice.txt", testSet);
         System.out.println("Set size is: " + testSet.size());
 
