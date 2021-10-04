@@ -28,7 +28,7 @@ public class LinkedListSet implements Set {
         setSize = size;
     }
 
-    public LinkedList getSetList() {
+    private LinkedList getSetList() {
         return this.setList;
     }
 
@@ -44,31 +44,11 @@ public class LinkedListSet implements Set {
 
     @Override
     public boolean contains(String word) {
-        if (setList.find(word) != null) {
-            return true;
-        }
-        return false;
+        return  (setList.find(word) != null);
     }
 
     @Override
     public int size() {
         return setSize;
-    }
-
-    public static void main(String args[]) {
-        LinkedList l = new LinkedList();
-        LinkedNode a = new LinkedNode("hello");
-        l.setHead(a);
-        LinkedNode b = new LinkedNode("world");
-        l.pushFront(b);
-
-        LinkedListSet set = new LinkedListSet(l);
-        System.out.println(set.contains("hello"));
-        System.out.println(set.size());
-        System.out.println(set.add("Haha!"));
-        System.out.println(set.size());
-        System.out.println(set.contains("Haha!"));
-        System.out.println(set.contains("a!"));
-        return;
     }
 }

@@ -15,11 +15,13 @@ public class HashSet {
         this.size = 0;
     }
 
+    // from openjdk
     private int hash(int hashcode) {
         hashcode ^= (hashcode >>> 20) ^ (hashcode >>> 12);
         return hashcode ^ (hashcode >>> 7) ^ (hashcode >>> 4);
     }
 
+    // from openjdk
     private int index(int hash, int length) {
         //when length is a power of 2, there's hash % length == hash & (length - 1)
         return hash & (length - 1);

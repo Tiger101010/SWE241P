@@ -37,23 +37,6 @@ public class LinkedList {
         }
         return null;
     }
-
-    public static void main(String args[]) {
-        LinkedList l = new LinkedList();
-        LinkedNode a = new LinkedNode("hello");
-        l.setHead(a);
-
-        LinkedNode b = new LinkedNode("world");
-        l.pushFront(b);
-
-
-        LinkedNode walk = l.getHead();
-        while (null != walk) {
-            System.out.println(walk.val);
-            walk = walk.next;
-        }
-        return;
-    }
 }
 
 
