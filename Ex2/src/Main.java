@@ -1,7 +1,4 @@
-import Sorting.HeapSort;
-import Sorting.InsertionSort;
-import Sorting.MergeSort;
-import Sorting.SelectionSort;
+import Sorting.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,13 +21,15 @@ public class Main {
         readFile("./data/pride-and-prejudice.txt", list);
         // readFile("./data/test.txt", list);
         long start = System.nanoTime();
-        // InsertionSort.sort(list);
+        InsertionSort.sort(list);
         // SelectionSort.sort(list);
-        HeapSort.sort(list);
+        // HeapSort.sort(list);
         // MergeSort.sort(list);
+        // QuickSort.sort(list);
+
         // Collections.sort(list);
         long end = System.nanoTime();
-        System.out.println(list);
+        // System.out.println(list);
         //System.out.println("Sorting costs: " + (double) (end - start) / 1_000_000_000.0 /60 + " minutes");
         System.out.println("Sorting costs: " + (double) (end - start) / 1_000_000_000.0 + " seconds");
         return;

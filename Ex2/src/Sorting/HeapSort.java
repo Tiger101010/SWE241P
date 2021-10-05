@@ -27,14 +27,6 @@ class Heap {
         heapify();
     }
 
-    private int comp(int i, int j){
-        return str.get(i).compareTo(str.get(j));
-    }
-
-    public void swap(int i, int j) {
-        Collections.swap(this.str, i, j);
-    }
-
     public void siftDown(int i, int reduceSize){
         if(reduceSize > str.size()) {
             return;
@@ -63,4 +55,15 @@ class Heap {
             return str.get(0);
         return null;
     }
+
+
+    public void swap(int i, int j) {
+        Collections.swap(this.str, i, j);
+    }
+
+
+    private int comp(int i, int j){
+        return str.get(i).compareTo(str.get(j));
+    }
+
 }
