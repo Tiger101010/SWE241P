@@ -13,8 +13,8 @@ public class Main {
 
     public void run() throws IOException {
         // java.util.Set<String> testSet = new HashSet<>();
-        Set testSet = new LinkedListSet();
-        // Set testSet = new HashMapSet(2000);
+        // Set testSet = new LinkedListSet();
+        Set testSet = new HashMapSet(64);
         // Set testSet = new TreeSet();
         readFile("./data/pride-and-prejudice.txt", testSet);
         //readFile("./data/test.txt", testSet);
@@ -24,7 +24,7 @@ public class Main {
         long elapsedTime = 0;
 
         String[] words = words2Find("./data/words-shuffled.txt");
-        FileWriter writer = new FileWriter(new File("./data/search-linked.csv"));
+        //FileWriter writer = new FileWriter(new File("./data/search-linked.csv"));
         System.out.println("There are " + words.length + " words in the Set.");
         for (String word : words) {
             long start = System.nanoTime();
@@ -32,11 +32,11 @@ public class Main {
                 inSetNum++;
                 long finish = System.nanoTime();
                 elapsedTime += finish - start;
-                writer.write(word+"\t"+Long.toString(finish - start) + "\n");
+                //writer.write(word+"\t"+Long.toString(finish - start) + "\n");
             }
         }
-        writer.close();
-        System.out.println("Finding costs: " + (double) elapsedTime / 1_000_000_000.0 + " seconds");
+        //writer.close();
+        System.out.println("Finding costs: " + (double) elapsedTime + " nanoseconds");
         System.out.println("There are " + inSetNum + " words not in the Set.");
     }
 
@@ -62,7 +62,7 @@ public class Main {
         }
         //writer.close();
         System.out.println("file length: " + fileLen);
-        System.out.println("Insertion costs: " + (double) elapsedTime / 1_000_000_000.0 + " seconds");
+        System.out.println("Insertion costs: " + (double) elapsedTime + " nanoseconds");
     }
 
     public void readFile(String filePath, java.util.Set mySet) throws IOException {

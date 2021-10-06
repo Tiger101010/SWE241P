@@ -35,7 +35,7 @@ public class HashSet {
         int hash = (k == null) ? 0 : hash(k.hashCode());
         int i = index(hash, buckets.length);
         for (Entry e = buckets[i]; e != null; e = e.next) {
-            if ((e.hash == hash) && (k != null || k.equals(e.getKey()))) {
+            if (k != null && k.equals(e.getKey())) {
                 return e;
             }
         }
