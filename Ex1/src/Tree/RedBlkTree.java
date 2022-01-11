@@ -88,6 +88,7 @@ public class RedBlkTree {
         }
     }
 
+    /** From CLR */
     private void rotateLeft(Node p) {
         if (p != null) {
             Node r = p.right;
@@ -128,14 +129,18 @@ public class RedBlkTree {
         x.color = RED;
 
         while (x != null && x != root && x.parent.color == RED) {
+            // x is in left subtree of grandpa
             if (parentOf(x) == leftOf(parentOf(parentOf(x)))) {
                 Node y = rightOf(parentOf(parentOf(x)));
                 if (colorOf(y) == RED) {
+                    // uncle node is red then turn father and uncle into black
                     setColor(parentOf(x), BLK);
                     setColor(y, BLK);
                     setColor(parentOf(parentOf(x)), RED);
                     x = parentOf(parentOf(x));
                 } else {
+                    // uncle is black or do not exist
+                    // then rotate left and set father to black, grandpa to red
                     if (x == rightOf(parentOf(x))) {
                         x = parentOf(x);
                         rotateLeft(x);
@@ -145,13 +150,17 @@ public class RedBlkTree {
                     rotateRight(parentOf(parentOf(x)));
                 }
             } else {
+                // x is in right subtree
                 Node y = leftOf(parentOf(parentOf(x)));
+                // uncle node is red then turn father and uncle into black
                 if (colorOf(y) == RED) {
                     setColor(parentOf(x), BLK);
                     setColor(y, BLK);
                     setColor(parentOf(parentOf(x)), RED);
                     x = parentOf(parentOf(x));
                 } else {
+                    // uncle is black or do not exist
+                    // then rotate right and set father to black, grandpa to red
                     if (x == leftOf(parentOf(x))) {
                         x = parentOf(x);
                         rotateRight(x);
@@ -162,6 +171,7 @@ public class RedBlkTree {
                 }
             }
         }
+        // root color is always black
         root.color = BLK;
     }
 

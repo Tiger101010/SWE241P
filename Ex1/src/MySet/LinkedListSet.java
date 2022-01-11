@@ -11,27 +11,6 @@ public class LinkedListSet implements Set {
         setSize = 0;
     }
 
-    public LinkedListSet(LinkedListSet LLSet) {
-        setList = LLSet.getSetList();
-        setSize = LLSet.size();
-    }
-
-    public LinkedListSet(LinkedList setList) {
-        this.setList = setList;
-
-        int size = 0;
-        LinkedNode walk = this.setList.getHead();
-        while (null != walk) {
-            size += 1;
-            walk = walk.next;
-        }
-        setSize = size;
-    }
-
-    private LinkedList getSetList() {
-        return this.setList;
-    }
-
     @Override
     public boolean add(String word) {
         if (setList.find(word) == null) {

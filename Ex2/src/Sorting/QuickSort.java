@@ -26,6 +26,7 @@ public class QuickSort {
         int indexOfPivot = right;
         String pivot = list.get(indexOfPivot);
 
+        // From textbook
         int firstHigh = left;
         for(int i = left; i < right; i++){
             if(list.get(i).compareTo(pivot) < 0) {

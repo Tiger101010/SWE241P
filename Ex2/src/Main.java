@@ -16,23 +16,25 @@ public class Main {
         System.out.println();
     }
 
-    public void run() throws IOException{
+    public void run(int i, int j) throws IOException{
         List<String> list = new ArrayList<String>();
+        System.out.println("Running " + (i+1) + "\t" + (j+1) + " Times");
         readFile("./data/pride-and-prejudice.txt", list);
         // readFile("./data/test.txt", list);
         long start = System.nanoTime();
-        InsertionSort.sort(list);
-        // SelectionSort.sort(list);
-        // HeapSort.sort(list);
-        // MergeSort.sort(list);
-        // QuickSort.sort(list);
-
-        // Collections.sort(list);
+        switch (i) {
+            case 0: InsertionSort.sort(list); break;
+            case 1: SelectionSort.sort(list); break;
+            case 2: HeapSort.sort(list); break;
+            case 3: MergeSort.sort(list); break;
+            case 4: QuickSort.sort(list); break;
+            default: break;
+        }
         long end = System.nanoTime();
         // System.out.println(list);
-        //System.out.println("Sorting costs: " + (double) (end - start) / 1_000_000_000.0 /60 + " minutes");
-        System.out.println("Sorting costs: " + (double) (end - start) / 1_000_000_000.0 + " seconds");
-        return;
+        // System.out.println("Sorting costs: " + (double) (end - start) / 1_000_000_000.0 /60 + " minutes");
+        // System.out.println("Sorting costs: " + (end - start)+ " nanoseconds");
+        System.out.println(end - start);
     }
 
     public void readFile(String filePath, List mySet) throws IOException {
@@ -49,12 +51,16 @@ public class Main {
                 elapsedTime += (finish - start);
             }
         }
-        System.out.println("Insertion costs: " + (double) elapsedTime / 1_000_000_000.0 + " seconds");
+        // System.out.println("Insertion costs: " + (double) elapsedTime / 1_000_000_000.0 + " seconds");
     }
 
     public static void main(String args[]) throws IOException{
         Main obj = new Main();
-        obj.run();
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 1; j++) {
+                obj.run(i, j);
+            }
+        }
         return;
     }
 }
